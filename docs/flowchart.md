@@ -24,3 +24,31 @@ flowchart TB
      H[k++] --> F1
     G --> H
 ```
+**3利润计算**
+
+```mermaid
+flowchart TB
+    St(开始)
+    Input1[/利润 profit/]
+    Proc1{{"奖金 bonus\nbonus1=10*0.1\nbonus2=bonus1+10*0.075\nbonus3=bonus2+10*0.03\nbonus4=bonus3+20*0.015\nbonus5=bonus4+40*0.015"}}
+    Choose1{profit==?} 
+    Proc2["profit = bonus * 0.1"]
+    Proc3["profit = bonus1 + (bonus - 10) * 0.75"]
+    Proc4["profit = bonus2 + (bonus - 20) * 0.05"]
+    Proc5["Profit=bonus3+(bonus-40)*0.03"]
+    Proc6["Profit=bonus4+(bonus-60)*0.015"]
+    Proc7["Profit=bonus5+(bonus-100)*0.001"]
+    St --> Proc1 --> Input1
+    Input1 --> Choose1
+    Choose1 -- <=10万 --> Proc2
+    Choose1 -- <=20万 --> Proc3
+    Choose1 -- <=40万 --> Proc4
+    Choose1 -- <=60万 --> Proc5
+    Choose1 -- <=100万 --> Proc6
+    Choose1 -- else --> Proc7
+    
+
+
+
+
+```
