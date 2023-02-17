@@ -46,9 +46,22 @@ flowchart TB
     Choose1 -- <=60万 --> Proc5
     Choose1 -- <=100万 --> Proc6
     Choose1 -- else --> Proc7
-    
+```
 
+**4 完全平方数**
 
-
-
+```mermaid
+flowchart TB
+   st(开始)
+   A{{i = 0}}
+   B{"i < 10万?"}
+   C{i + 100 是完全平方数吗?}
+   D{i + 168 是完全平方数吗?}
+   E[/i/]
+   st --> A --> B
+   B -- yes --> C -- yes --> D
+   D -- yes --> E
+   D -- no --> G[i++] --> B
+   C -- no --> G
+   E --> B -- no -----> ed(结束)
 ```
