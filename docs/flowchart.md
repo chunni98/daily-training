@@ -65,3 +65,29 @@ flowchart TB
    C -- no --> G
    E --> B -- no -----> ed(结束)
 ```
+
+**5 输入某年某月某日，判断这一天是这一年的第几天？**
+
+```mermaid
+flowchart TB
+    St(开始)
+    input[/输入 year,month,day/]
+    init{{"数组 months{每月天数,2月28天},计数器 i,days"}}
+    judge{i < month -1 ?}
+    judge2{year 是闰年吗?}
+    proc["days += months[i]"]
+    proc2[days+=1]
+    output[/days/]
+    Stop(结束)
+
+    St --> input --> init --> judge
+    judge -- yes --> proc
+    proc -->i++ --> judge
+    judge --- no --> proc3[days += day]
+    proc3 --> judge2
+    judge2
+    judge2 -- yes --> proc2 --> output
+    judge2 -- no --> output
+    output --> Stop
+
+```
