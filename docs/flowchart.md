@@ -91,3 +91,28 @@ flowchart TB
     output --> Stop
 
 ```
+**6输入三个整数 x,y,z，请把这三个数由小到大输出。**
+
+```mermaid
+flowchart TB
+    st(start)
+    input[/x,y,z/]
+    init{{max}}
+    judge1{x>y?}
+    judge2{x>z?}
+    judge3{y>z?}
+    proc1[max=x]
+    proc2[max=y]
+    proc3[max=z]
+    output[/max/]
+    stop(stop)
+
+    st --> input --> init
+    --> judge1
+    -- yes --> judge2
+    -- yes ---> proc1
+     judge3 & judge2-- no --> proc2
+    judge1 -- no --> judge3 -- yes --> proc3
+    proc1 & proc2 & proc3 --> output
+    --> stop
+```

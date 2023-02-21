@@ -38,3 +38,19 @@ if month > 1 and is_leap_year(year):
 print(days)
 
 ```
+
+**6 输入三个整数 x,y,z，请把这三个数由小到大输出**
+
+```py
+# 算法：输入三个整数 x,y,z，请把这三个数由小到大输出。
+# 作者：shzchi
+# 时间：2023-02-21 17:32
+
+# input x,y,z
+# output: max
+
+max = x if x > y and x > z else y if y > x and y > z else z
+
+return max
+
+```
