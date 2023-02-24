@@ -4,6 +4,10 @@
 - `docs` 文档，主要存放流程图和伪代码。
     - `flochart` 流程图，描述流程
     - `pseudocode` 伪代码，描述算法
+- `inc` 头文件。
+- `lib` 库文件。
+- `bin` 二进制可执行文件。
+- `projects` 项目。
 
 ## src
 
