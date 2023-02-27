@@ -9,6 +9,7 @@
 
 
 #include <stdbool.h>
+#include <stdint.h>
 
 // 程序的流程在这里控制。
 int32_t run();
