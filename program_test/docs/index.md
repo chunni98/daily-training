@@ -10,6 +10,7 @@
 
 输出总人数的最小值（或报告无解，即输出No answer）。实例，输出：89
 
+```mermaid
 flowchart TB
   st(start)
   ed(end)
@@ -24,3 +25,4 @@ flowchart TB
   condition -- no --> i++ --> cond2
   cond2 -- yes --> condition
   cond2 -- no --> i=-1 --> output --> ed
+```
