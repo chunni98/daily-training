@@ -1,24 +1,21 @@
 /****************************************************************************
-* @file        : ./src/atms.c
+* @file        : src/main.c
 * @brief       :
 * @author      : shachi
 * @email       : shachi1758@outlook.com
 * @details     :
 * @version     : 0.1.0
 * @history     :
-*      2023-02-27 18:08:57 创建文件
+*      2023-03-02 14:02:59 创建文件
 ****************************************************************************/
 
-#include <stdint.h>
-#include <stdbool.h>
-#include "login.h"
+#include "01.h"
+#include "klogger.h"
 
-int32_t Run()
+
+int main(int argc, const char* argv[])
 {
-    do{
-        LoginMenu();
-
-    }while(true);
+    kdebug("%zu\n",get_result(2,4,5));
 
     return 0;
 }

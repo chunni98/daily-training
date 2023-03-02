@@ -1,24 +1,15 @@
 /****************************************************************************
-* @file        : ./src/atms.c
-* @brief       :
+* @file        : incl/01.h
+* @brief       : 韩信点兵
 * @author      : shachi
 * @email       : shachi1758@outlook.com
 * @details     :
 * @version     : 0.1.0
 * @history     :
-*      2023-02-27 18:08:57 创建文件
+*      2023-03-02 14:06:04 创建文件
 ****************************************************************************/
 
+#include <stddef.h>
 #include <stdint.h>
-#include <stdbool.h>
-#include "login.h"
 
-int32_t Run()
-{
-    do{
-        LoginMenu();
-
-    }while(true);
-
-    return 0;
-}
+size_t get_result(int32_t, int32_t, int32_t);
