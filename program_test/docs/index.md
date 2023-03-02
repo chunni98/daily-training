@@ -9,3 +9,20 @@
 **输出**
 
 输出总人数的最小值（或报告无解，即输出No answer）。实例，输出：89
+
+```mermaid
+Flowchar TB
+  st(start)
+  ed(end)
+  input[/a,b,c/]
+  init{{i = 10}}
+  condition{i整除3和5和8?}
+  output[/i/]
+  cond2{i < 100?}
+  
+  st --> input --> init --> condition
+  condition -- yes --> output
+  condition -- no --> i++ --> cond2
+  cond2 -- yes --> condition1
+  cond2 -- no --> i = -1 --> ed
+```
