@@ -26,3 +26,37 @@ flowchart TB
   cond2 -- yes --> condition
   cond2 -- no --> i=-1 --> output --> ed
 ```
+
+## 2 兰州烧饼
+
+烧饼有两面，要做好一个兰州烧饼，要两面都弄热。当然，一次只能弄一个的话，效率就太低了。有这么一个大平底锅，一次可以同时放入k个兰州烧饼，一分钟能做好一面。而现在有n个兰州烧饼，至少需要多少分钟才能全部做好呢？
+
+**输入**
+
+依次输入 n 和 k，中间以空格分隔，其中 1 <= k, n <= 100000
+
+**输出**
+
+输出全部做好至少需要的分钟数
+
+**提示**
+
+如样例，三个兰州烧饼编号 a,b,c 首先 a 和 b，然后 b 和 c，最后 a 和 c 3 分钟完成。
+
+```mermaid
+flowchart TB
+    st(start)
+    input[/n,k,t/]
+    init{{sum}}
+    cond{"2*n%k==0?"}
+    proc1["sum = 2*n/k*t"]
+    proc2["sum = ((2*n/k) + 1)*t"]
+    output[/sum/]
+    ed(end)
+
+    st --> input --> init --> cond
+    cond --yes--> proc1
+    cond --no --> proc2
+    proc1 & proc2 --> output
+    output --> ed
+```

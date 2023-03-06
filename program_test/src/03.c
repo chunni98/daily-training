@@ -1,19 +1,23 @@
-#ifndef _01_H
-#define _01_H
 /****************************************************************************
-* @file        : incl/01.h
-* @brief       : 韩信点兵
+* @file        : ./src/03.c
+* @brief       : 进制转换
 * @author      : shachi
 * @email       : shachi1758@outlook.com
 * @details     :
 * @version     : 0.1.0
 * @history     :
-*      2023-03-02 14:06:04 创建文件
+*      2023-03-06 09:25:49 创建文件
 ****************************************************************************/
 
 #include <stddef.h>
-#include <stdint.h>
+#include "03.h"
 
-size_t get_result(int32_t, int32_t, int32_t);
+char *dec2any(int32_t dec, int32_t r)
+{
+    if(r < 2 || r > 16 || r == 10) {
+        return NULL;
+    }
 
-#endif //_01_H
+
+   return NULL; 
+}

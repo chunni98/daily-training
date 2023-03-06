@@ -10,12 +10,16 @@
 ****************************************************************************/
 
 #include "01.h"
+#include "02.h"
 #include "klogger.h"
 
 
 int main(int argc, const char* argv[])
 {
+    kdebug("第一题---------------\n");
     kdebug("%zu\n",get_result(2,4,5));
+    kdebug("第二题---------------\n");
+    kdebug("烙饼总时间是：%zu\n",func02(30,5,1));
 
     return 0;
 }
