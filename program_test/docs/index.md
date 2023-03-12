@@ -99,3 +99,18 @@ flowchart TB
 **输出**
 
 对于每组输入数据，输出一行，表示该日期是该年的第几天。
+
+```mermaid
+flowchart TB
+    st(start)
+    ed(end)
+    input[/"yyyy/mm/dd"/]
+    cond{结束?}
+    proc1[计算天数]
+    output[/days/]
+
+    st --> input --> cond
+    cond -- yes --> proc1 --> output --> ed
+    cond -- no --> input
+
+```
