@@ -23,4 +23,6 @@
  */
 char *dec2any(int32_t dec, int32_t r);
 
+void reverse(char *s);
+
 #endif // _03_H

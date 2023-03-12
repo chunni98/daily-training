@@ -19,7 +19,7 @@ flowchart TB
   condition{i整除3和5和8?}
   output[/i/]
   cond2{i < 100?}
-  
+
   st --> input --> init --> condition
   condition -- yes --> output
   condition -- no --> i++ --> cond2
@@ -59,4 +59,33 @@ flowchart TB
     cond --no --> proc2
     proc1 & proc2 --> output
     output --> ed
+```
+## 3 进制转换
+
+输入一个十进制数N，将它转换成R进制数输出。
+
+**输入**
+
+输入数据包含多个测试实例，每个测试实例包含两个整数N(32位整数)和R（2<=R<=16, R<>10）。
+
+**输出**
+
+为每个测试实例输出转换后的数，每个输出占一行。如果R大于10，则对应的数字规则参考16进制（比如，10用A表示，等等）。
+
+```mermaid
+flowchart TB
+    st(start)
+    ed(end)
+    input[/N,R/]
+    init{{"arr={0-F}\nans[]\ncount=0"}}
+    cond{N>0?}
+    proc1["ans[count] = arr[N%R]"]
+    proc2["N=N/R"]
+    output[/"reverse(ans)"/]
+
+
+    st --> input --> init --> cond
+    cond -- yes --> proc1 --> proc2 -->
+    ++count --> cond
+    cond -- no --> output ----> ed
 ```

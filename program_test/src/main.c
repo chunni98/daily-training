@@ -11,6 +11,7 @@
 
 #include "01.h"
 #include "02.h"
+#include "03.h"
 #include "klogger.h"
 
 
@@ -20,6 +21,9 @@ int main(int argc, const char* argv[])
     kdebug("%zu\n",get_result(2,4,5));
     kdebug("第二题---------------\n");
     kdebug("烙饼总时间是：%zu\n",func02(30,5,1));
+    kdebug("第三题----------------\n");
+    int a = 17, b = 8;
+    kdebug("%d 转成 %d 进制是 %s\n",a,b,dec2any(a,b));
 
     return 0;
 }

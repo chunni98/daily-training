@@ -10,6 +10,8 @@
 ****************************************************************************/
 
 #include <stddef.h>
+#include <string.h>
+#include <malloc.h>
 #include "03.h"
 
 char *dec2any(int32_t dec, int32_t r)
@@ -18,6 +20,32 @@ char *dec2any(int32_t dec, int32_t r)
         return NULL;
     }
 
+    char arr[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    char *ans = (char *) malloc (sizeof(char) * 50);
 
-   return NULL; 
+    size_t count = 0;
+
+    while (dec > 0)
+    {
+        ans[count] = arr[dec % r];
+        dec = dec / r;
+        ++count;
+    }
+
+    ans[count] = 0;
+    reverse(ans);
+
+   return ans;
+}
+
+void reverse(char *s)
+{
+	int i, l, t;
+	l = strlen(s);
+	for(i = 0;i < l/2;i++)
+	{
+		t = s[i];
+		s[i] = s[l - i - 1];
+		s[l - i - 1] = t;
+	}
 }

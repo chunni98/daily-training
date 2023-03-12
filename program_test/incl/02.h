@@ -25,4 +25,6 @@
  */
 size_t func02(size_t sum, size_t k, size_t t);
 
+
+
 #endif // _02_H
