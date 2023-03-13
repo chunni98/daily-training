@@ -171,3 +171,29 @@ flowchart TB
     cond -- yes  --> ed
     cond -- no --> input
 ```
+
+## 7 计算球体积
+
+根据输入的半径值，计算球的体积。
+
+**输入**
+
+输入数据有多组，每组占一行，每行包括一个实数，表示球的半径。
+
+**输出**
+
+输出对应的球的体积，对于每组输入数据，输出一行，计算结果保留三位小数。
+
+
+```mermaid
+flowchart TB
+    st(start)
+    ed(end)
+    input[/num/]
+    init{{"ans"}}
+    cond{stop?}
+    output[/"PI * r * r * r"/]
+    st --> init --> input --> output
+    output --> cond -- no --> input
+    cond -- yes ---> ed
+```
