@@ -114,3 +114,37 @@ flowchart TB
     cond -- no --> input
 
 ```
+
+## 5 成绩转换
+
+输入一个百分制的成绩M，将其转换成对应的等级，具体转换规则如下：
+
+```
+90~100为A;
+80~89为B;
+70~79为C;
+60~69为D;
+0~59为E;
+```
+
+```mermaid
+flowchart TB
+    st(start)
+    ed(end)
+    input[/成绩M/]
+    cond{M在哪个区间?}
+    proc1[/A/]
+    proc2[/B/]
+    proc3[/C/]
+    proc4[/D/]
+    proc5[/E/]
+
+    st --> input --> cond
+    cond -- "90~100" --> proc1
+    cond -- "80~89" --> proc2
+    cond -- "70~79" --> proc3
+    cond -- "60~69" --> proc4
+    cond -- "0~59" --> proc5
+
+    proc1 & proc2 & proc3 & proc4 & proc5 --> ed
+```
