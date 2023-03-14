@@ -197,3 +197,32 @@ flowchart TB
     output --> cond -- no --> input
     cond -- yes ---> ed
 ```
+
+## 8 两点距离
+
+输入两点坐标（X1,Y1）,（X2,Y2）(`0<=x1,x2,y1,y2<=1000`),计算并输出两点间的距离。
+
+**输入**
+
+第一行输入一个整数n（`0<n<=1000`）,表示有n组测试数据;随后每组占一行，由4个实数组成，分别表示x1,y1,x2,y2,数据之间用空格隔开。
+
+**输出**
+
+对于每组输入数据，输出一行，结果保留两位小数。
+
+```mermaid
+flowchart TB
+    st(start)
+    ed(end)
+    init{{ans,i}}
+    input1[/n/]
+    input2[/x1,y1,x2,y2/]
+    output[/ans/]
+    cond{"i< n"}
+    proc["ans="]
+
+    st --> init --> input1 --> cond
+    -- yes --> input2 -->proc --> output -->
+    ++i --> cond
+    ---- no  ----> ed
+```

@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include "06.h"
 #include "07.h"
+#include "08.h"
 
 int main(int argc, const char* argv[])
 {
@@ -45,13 +46,24 @@ int main(int argc, const char* argv[])
     // kdebug("100分是 %c,57.2 分是 %c\n",get_grade(100.0),get_grade(57.2));
     // kdebug("第六题————————————————————\n");
     // kdebug("32.3 的绝对值是 ：%.2f,-23.7 的绝对值是：%.2f\n",get_absolute_value(32.3),get_absolute_value(-23.7));
-    kdebug("第七题————————————————————\n");
-    float r = 3.2;
-    do
-    {
-        printf("r = %.3f, area = %3.f\n",r, get_area(r));
-    } while (EOF != scanf("%f",&r));
+    //kdebug("第七题————————————————————\n");
+    //float r = 3.2;
+    //do
+    //{
+     //   printf("r = %.3f, area = %3.f\n",r, get_area(r));
+    //} while (EOF != scanf("%f",&r));
+    kdebug("第八题————————————————————\n");
 
+    size_t n;
+    printf("请输入 n：\n");
+    scanf("%zu",&n);
+    size_t i = 0;
 
+    while(i < n) {
+        int32_t x1,y1,x2,y2;
+        scanf("%d,%d,%d,%d",&x1, &y1, &x2, &y2);
+        printf("距离是：%.2f\n",get_distance(x1,y1,x2,y2));
+        ++i;
+    }
     return 0;
 }
