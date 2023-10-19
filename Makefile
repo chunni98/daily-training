@@ -1,5 +1,5 @@
 TOP_DIR := $(shell pwd)
-MAKE := make
+MAKE := mingw32-make
 CC := gcc
 CFLAGS := -Wall -Werror -std=c11 -g -march=native
 RM := rm -rf
