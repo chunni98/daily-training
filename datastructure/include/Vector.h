@@ -11,7 +11,7 @@ class Vector {
 public:
     Vector() = default;
     explicit Vector(size_t size);
-    Vector(Vector &from);
+    Vector(const Vector &from);
     void push_back(int val);
     size_t size() const;
     size_t capacity() const;
@@ -24,13 +24,16 @@ public:
 
 private:
     static constexpr auto DEFAULT_CAPACITY = 5;
+    static constexpr auto DEFAULT_MULTIPLE = 2;
+    void copy(const Vector &from);
     void expand_capacity();
+    void expand_capacity(size_t index);
     size_t                  size_ = 0;
     size_t                  capacity_ = 0;
     std::unique_ptr<int[]>    data_ = nullptr;
 };
 
-}  // namespace slib
 
+}  // namespace slib
 
 #endif  //VECTOR_H_
