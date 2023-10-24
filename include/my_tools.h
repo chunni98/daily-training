@@ -27,4 +27,18 @@
     (void)(&_x == &_y);\
     _x < _y ? _x : _y;})
 
+#include <iostream>
+void _check(bool b, const char *exp, int line)
+{
+    std::cout << '\"' << exp << '\"' << '\t' << "in line " << line;
+    if (b) {
+        std::cout << " is pass!";
+    } else {
+        std::cout << " is not passed!";
+    }
+    std::cout << std::endl;
+}
+
+#define check(exp) _check(exp, #exp,  __LINE__);
+
 #endif // _SHACHI_MY_TOOLS_H
