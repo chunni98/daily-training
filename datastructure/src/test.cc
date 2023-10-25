@@ -26,7 +26,7 @@ void vector_test()
 
     Vector v2(10);
     check(v2.size() == 10);
-    check(v2.capacity() == 10);
+    check(v2.capacity() == 20);
     Vector v3(11);
     check(v3.size() == 11);
     check(v3.capacity() == 20);
@@ -70,4 +70,80 @@ void vector_test()
     Vector v8;
     v7 = v8;
     check(v7.empty() == true && v7.size() == 0);
+
+    Vector v9;
+    for (size_t i = 0; i < 10; i++) {
+        v9.push_back(i);
+    }
+    check(v9.size() == 10);
+    check(v9.capacity() == 20);
+    cout << "=====================" << endl;
+    Vector::Iterator iter = v9.begin();
+    check(*iter == 0);
+
+    for (; iter != v9.end(); ++iter) {
+        cout << *iter << endl;
+    }
+
+}
+
+void test2()
+{
+    Vector a;
+
+    Vector first;                   // empty vector of ints
+    check(first.empty() == true && first.size() == 0);
+    Vector second(4, 100);                       // four ints with value 100
+    check(second.empty() == false);
+    check(second.size() == 4);
+    check(*second.begin() == 100);
+    Vector fourth(second);                       // a copy of third
+    check(fourth.size() == second.size());
+
+    int myints[] = { 16,2,77,29 };
+    Vector fifth(myints, myints + sizeof(myints) / sizeof(int));
+    check(fifth.empty() == false);
+    check(fifth[0] == 16);
+    check(fifth[3] == 29);
+    check(fifth.size() == sizeof(myints) / sizeof(int));
+    //print(fifth, "fifth");//The contents of fifth are:16 2 77 29
+    fifth.push_back(30);
+    check(fifth[4] == 30);
+    check(fifth.size() == 5);
+    //print(fifth, "fifth");//The contents of fifth are:16 2 77 29 30
+    check(fifth.size() == sizeof(myints) / sizeof(int) + 1);
+    first = fifth = fifth;
+    //print(first, "first");//The contents of first are:16 2 77 29 30
+    check(first.empty() == false && first.size() == fifth.size());
+    //print_itr(fifth, "fifth");//The contents of fifth are:16 2 77 29 30
+    //print_const_itr(fifth, "fifth");//The contents of fifth are:16 2 77 29 30
+    Vector a1(myints, myints + sizeof(myints) / sizeof(int));
+    {
+        Vector b(a1);
+        b.push_back(2);
+        check(b[4] == 2);
+    }
+    {
+        Vector c;
+        for (auto i : c)
+        {
+            std::cout << i << " ";
+        }
+        c = a1;
+        a1 = c;
+        c = a1;
+
+        for (auto i : c)
+        {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    }
+    check(a1.size() == sizeof(myints) / sizeof(int));
+    {
+        Vector c;
+        c = fifth;
+        c[0] = 1;
+        check(c[0] == 1);
+    }
 }

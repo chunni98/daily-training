@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include <cassert>
 #include <cmath>
 
 using namespace std;
@@ -13,11 +14,30 @@ Vector::Vector(size_t size)
     }
 }
 
+Vector::Vector(size_t size, int value)
+{
+    expand_capacity(size);
+    for (size_t i = 0; i < size_; ++i) {
+        data_[i] = value;
+    }
+}
+
+
+Vector::Vector(int *begin, int *end)
+{
+    assert(begin != nullptr && end != nullptr);
+    auto size = ((size_t)end - (size_t)begin ) / sizeof (int);
+    expand_capacity(size);
+    for (size_t i = 0; i < size_; ++i) {
+        data_[i] = begin[i];
+    }
+}
+
 // Vector(size) 用
 void Vector::expand_capacity(size_t size)
 {
     capacity_ = DEFAULT_CAPACITY;
-    while (capacity_ < size) {
+    while (capacity_ <= size) {
         capacity_ *= DEFAULT_MULTIPLE;
     }
     data_ = make_unique<int[]>(capacity_);
@@ -32,17 +52,18 @@ void Vector::expand_capacity()
         capacity_ = DEFAULT_CAPACITY;
         return ;
     }
-    auto ptr = make_unique<int[]>(capacity_ * DEFAULT_MULTIPLE);
+    //auto ptr = make_unique<int[]>(capacity_ * DEFAULT_MULTIPLE);
+    int *ptr = new int[capacity_ * DEFAULT_MULTIPLE];
     for (size_t i = 0; i < size_; ++i) {
         ptr[i] = data_[i];
     }
-    data_.reset(ptr.release());
+    data_.reset(ptr);
     capacity_ = capacity_ * DEFAULT_MULTIPLE;
 }
 
 void Vector::push_back(int val)
 {
-    if (capacity_ < size_+1) {
+    if (capacity_ <= size_ + 1) {
         expand_capacity();
     }
     data_[size_] = val;
@@ -86,12 +107,15 @@ void Vector::clear()
     size_ = 0;
     capacity_ = 0;
     if (data_) {
-        data_.reset();
+        data_.reset(nullptr);
     }
 }
 
 Vector& Vector::operator=(const Vector &from)
 {
+    if (&from == this) {
+        return *this;
+    }
     copy(from);
     return *this;
 }
@@ -110,5 +134,59 @@ bool Vector::empty() const
 {
     return size_ == 0;
 }
+
+Vector::Iterator Vector::begin()
+{
+    Iterator iter;
+    if (empty()) {
+        iter.element_ = nullptr;
+    }
+    iter.element_ = &(data_[0]);
+    return iter;
+}
+
+Vector::Iterator Vector::end()
+{
+    Iterator iter;
+    if (empty()) iter.element_ = nullptr;
+    iter.element_ = &(data_[size_]);
+    return iter;
+}
+
+Vector::Iterator::Iterator()
+{
+}
+Vector::Iterator::~Iterator()
+{
+
+}
+
+int& Vector::Iterator::operator++()
+{
+    return *(++element_);
+}
+int Vector::Iterator::operator++(int)
+{
+    return *(element_++);
+}
+
+bool operator!=(const Vector::Iterator &l, const Vector::Iterator &r)
+{
+    return l.element_ != r.element_;
+}
+
+bool operator==(const Vector::Iterator &l, const Vector::Iterator &r)
+{
+    return l.element_ == r.element_;
+}
+
+int& Vector::Iterator::operator*()
+{
+    // TODO: end() 解引用
+    // TODO: nullptr 解引用
+    return *element_;
+}
+
+
 
 }   // namespace slib
