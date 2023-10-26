@@ -4,8 +4,14 @@
 #include <cstddef>
 #include <memory>
 
+// TODO:
+// 1. 改造成模板类
+// 2. 支持列表初始化
+// 3. 支持随机访问迭代器
+
 namespace slib{
 
+template <typename T>
 class Vector {
 public:
     class Iterator {
@@ -21,16 +27,16 @@ public:
             Iterator();
             ~Iterator();
         private:
-            int *element_;
+            T *element_;
     };
 public:
     Vector() = default;
     explicit Vector(size_t size);
-    Vector(size_t size, int value);
+    Vector(size_t size, T value);
     Vector(const Vector &from);
     Vector(Iterator begin, Iterator end);
     Vector(int *begin, int *end);
-    void push_back(int val);
+    void push_back(const T :val);
     size_t size() const;
     size_t capacity() const;
     ~Vector();
@@ -50,7 +56,7 @@ private:
     void expand_capacity(size_t index);
     size_t                      size_ = 0;
     size_t                      capacity_ = 0;
-    std::unique_ptr<int[]>      data_ = nullptr;
+    std::unique_ptr<T[]>      data_ = nullptr;
 };
 
 }  // namespace slib
