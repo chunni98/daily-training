@@ -1,7 +1,9 @@
-extern void vector_test();
+#include <iostream>
 
+using namespace std;
 int main(int argc, const char *argv[])
 {
-    vector_test();
+    cout << "Hello, World!\n";
+
     return 0;
 }

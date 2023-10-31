@@ -39,6 +39,10 @@ void _check(bool b, const char *exp, int line)
     std::cout << std::endl;
 }
 
+#ifdef NDEBUG
+#define check(exp)
+#else
 #define check(exp) _check(exp, #exp,  __LINE__);
+#endif
 
 #endif // _SHACHI_MY_TOOLS_H
