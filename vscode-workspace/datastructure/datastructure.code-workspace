@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "C:\\Users\\newlink\\Documents\\code\\daily-training\\datastructure"
+		}
+	],
+	"settings": {
+		"clangd.arguments": [
+			"--background-index",
+			"--compile-commands-dir=${workspaceFolder}/build",
+			"-j=8",
+            "--query-driver=clang++",
+            "--clang-tidy",
+            "--enable-config",
+            "--all-scopes-completion",
+            "--completion-style=detailed",
+            "--fallback-style=WebKit",
+            "--function-arg-placeholders",
+            "--header-insertion-decorators",
+            "--header-insertion=never",
+            "--pch-storage=memory",
+            "--log=error"
+		]
+	}
+}
