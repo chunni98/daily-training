@@ -28,7 +28,7 @@
     _x < _y ? _x : _y;})
 
 #include <iostream>
-void _check(bool b, const char *exp, int line)
+inline void _check(bool b, const char *exp, int line)
 {
     std::cout << '\"' << exp << '\"' << '\t' << "in line " << line;
     if (b) {

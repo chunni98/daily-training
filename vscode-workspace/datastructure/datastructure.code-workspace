@@ -1,7 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "C:\\Users\\newlink\\Documents\\code\\daily-training\\datastructure"
+			"path": "../../datastructure"
+		},
+		{
+			"path": "../../include"
 		}
 	],
 	"settings": {
