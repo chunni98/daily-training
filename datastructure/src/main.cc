@@ -1,18 +1,13 @@
-#include <iostream>
-#include "Vector.hpp"
-
-
-using namespace std;
-using namespace slib;
+extern void test1();
+extern void test2();
+extern void test3();
+extern void test4();
 
 int main(int argc, const char *argv[])
 {
-    Vector<int> vec{1, 3};
-    cout << vec << endl;
-    Vector<int> vec2{5, 2};
-    cout << vec2 << endl;
-
-    cout << "Hello, World!\n";
-
+    test1();
+    test2();
+    test3();
+    test4();
     return 0;
 }
